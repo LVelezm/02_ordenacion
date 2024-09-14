@@ -16,6 +16,21 @@ void interDirDer(int A[], int n){
 		
 	}
 }
+void interDirIzq(int A[], int n){
+	int i, j;
+	int aux;
+	for(i=0; i<n-1; i++){
+		for(j=0; j<n-i-1; j++){
+			if (A[j]>A[j+1]){
+				aux = A[j];
+				A[j] = A[j+1];
+				A[j+1] = aux;
+			}
+			
+		}
+		
+	}
+}
 
 int main(){
 	int i, numero, opcion;
@@ -46,6 +61,12 @@ int main(){
 				cout<<endl;
 				break;
 			case 2:
+				interDirIzq(Arreglo, numero);
+				cout << "Arreglo ordenado: " << endl;
+				for(i = 0; i < numero; i++){
+					cout << Arreglo[i] << " ";
+				}
+				cout<<endl;
 				break;
 			case 3:
 				break;
