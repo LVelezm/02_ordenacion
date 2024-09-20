@@ -74,6 +74,19 @@ void interDirBi(int A[],int n) {
 		der=k-1;
 	}
 }
+
+void InsercionDir(int A[], int n) {
+    for (int i = 1; i < n; i++) {
+        int aux = A[i];
+        int k = i - 1;
+        while (k >= 0 && aux < A[k]) {
+            A[k + 1] = A[k];
+            k = k - 1;
+        }
+        A[k + 1] = aux;
+    }
+}
+
 int main(){
 	int i, numero, opcion;
 	bool menu=true;
@@ -90,8 +103,9 @@ int main(){
 		cout<<"2. Ordenar de izquierda a derecha"<<endl;
 		cout<<"3. Ordenar con señal"<<endl;
 		cout<<"4. Ordenar de manera bidireccional"<<endl;
-		cout<<"5. salir"<<endl;
-		cout<<"Elige una opcion (1-5): ";
+		cout<<"5. Ordenar por insercion directa"<<endl;
+		cout<<"6. salir"<<endl;
+		cout<<"Elige una opcion (1-6): ";
 		cin>>opcion;
 		switch(opcion){
 			case 1:
@@ -127,6 +141,14 @@ int main(){
 					cout<<endl;
 				break;
 			case 5:
+				InsercionDir(Arreglo, numero);
+				cout << "Arreglo ordenado: " << endl;
+				for(i = 0; i < numero; i++){
+					cout << Arreglo[i] << " ";
+				}
+				cout<<endl;
+				break;
+			case 6:
 				cout<<"saliendo...."<<endl;
 				menu= false;
 				break;
