@@ -87,10 +87,27 @@ void InsercionDir(int A[], int n) {
     }
 }
 
+void SeleccionDir(int A[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int menor = A[i];
+        int k = i;
+
+        for (int j = i + 1; j < n; j++) {
+            if (menor > A[j]) {
+                menor = A[j];
+                k = j;
+            }
+        }
+
+        A[k] = A[i];
+        A[i] = menor;
+    }
+}
+
 int main(){
 	int i, numero, opcion;
+	SetConsoleOutputCP(65001);
 	bool menu=true;
-	SetConsoleOutputCP(CP_UTF8);
 	cout<<"Cual es la cantidad del arreglo (0-100):  "<<endl;
 	cin>>numero;
 	int Arreglo[100];
@@ -104,8 +121,9 @@ int main(){
 		cout<<"3. Ordenar con señal"<<endl;
 		cout<<"4. Ordenar de manera bidireccional"<<endl;
 		cout<<"5. Ordenar por insercion directa"<<endl;
-		cout<<"6. salir"<<endl;
-		cout<<"Elige una opcion (1-6): ";
+		cout<<"6. Ordenar por selección directa"<<endl;
+		cout<<"7. Salir"<<endl;
+		cout<<"Elige una opcion (1-7): ";
 		cin>>opcion;
 		switch(opcion){
 			case 1:
@@ -142,13 +160,22 @@ int main(){
 				break;
 			case 5:
 				InsercionDir(Arreglo, numero);
-				cout << "Arreglo ordenado: " << endl;
-				for(i = 0; i < numero; i++){
+					cout << "Arreglo ordenado: " << endl;
+					for(i = 0; i < numero; i++){
 					cout << Arreglo[i] << " ";
-				}
-				cout<<endl;
+					}
+					cout<<endl;
 				break;
 			case 6:
+				SeleccionDir(Arreglo, numero);
+				cout << "Arreglo ordenado: " << endl;
+					for(i = 0; i < numero; i++){
+						cout << Arreglo[i] << " ";
+					}
+					cout<<endl;
+				break;
+			case 7:
+				cout<<endl;
 				cout<<"saliendo...."<<endl;
 				menu= false;
 				break;
