@@ -28,7 +28,7 @@ int main(){
 		cout<< "Arreglo [" <<i+1<<"]: ";
 		cin>> Arreglo[i];
 	}
-	InsercionDir(Arreglo, numero);
+	SeleccionDir(Arreglo, numero);
 	cout << "Arreglo ordenado: " << endl;
 	for(i = 0; i < numero; i++){
 		cout << Arreglo[i] << " ";
